@@ -24,7 +24,26 @@ def smallest_diff(a, b):
 
         >>> smallest_diff([10, 20, 30, 40], [15, 25, 33, 45])
         3
+        >>> smallest_diff([10, 20, 14, 16, 18], [30, 23, 54, 33, 96])
+        3
     """
+    #sort each list
+    a.sort()
+    b.sort()
+    final_diff = []
+    i = 0
+    while i < len(a):
+        j = 0
+        diff = 0
+        while j < len(b) and diff <= 0:
+            diff = b[j] - a[i]
+            j += 1
+        final_diff.append(diff)
+        i += 1
+    return min(final_diff)
+
+
+
 
 
 if __name__ == '__main__':
